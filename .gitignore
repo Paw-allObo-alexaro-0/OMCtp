@@ -30,3 +30,23 @@
 *.exe
 *.out
 *.app
+
+# Binaries und Build-Ordner
+/bin/
+/build/
+*.exe
+*.a
+*.so
+*.dll
+
+# Editor-spezifische Dateien (z.B. VS-Code, CLion)
+.vscode/
+.vs/
+
+# Dependencies (SFML etc.)
+/libs/
+dependencies/
+
+# Große Assets (Sounddateien besser über Git LFS)
+*.wav
+*.mp3
