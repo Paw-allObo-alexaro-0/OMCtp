@@ -10,7 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deepseek", "deepseek", "{94
 		dev_flow\deepseek\main.chat = dev_flow\deepseek\main.chat
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repos", "repos", "{243A6903-E601-4A71-AE9B-176190527B69}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repos", "repos", "{27313DB9-50C2-4571-BF24-FE6FFCF96745}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CONTRIBUTING.md = CONTRIBUTING.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
