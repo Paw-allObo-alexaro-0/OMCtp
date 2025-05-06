@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dev_flow", "dev_flow", "{524D98A2-CCCB-44A6-9434-D849078EDDB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deepseek", "deepseek", "{94877FD5-6D1D-4391-A81F-B83C8B291FB5}"
+	ProjectSection(SolutionItems) = preProject
+		dev_flow\deepseek\main.chat = dev_flow\deepseek\main.chat
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repos", "repos", "{243A6903-E601-4A71-AE9B-176190527B69}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{94877FD5-6D1D-4391-A81F-B83C8B291FB5} = {524D98A2-CCCB-44A6-9434-D849078EDDB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93295DDF-0D6A-4338-84DE-5643C4E8CF84}
+	EndGlobalSection
+EndGlobal
