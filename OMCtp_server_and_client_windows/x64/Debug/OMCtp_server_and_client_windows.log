@@ -1,1 +1,2 @@
-﻿
+﻿  winentry.cpp
+D:\OMCtp\OMCtp_server_and_client_windows\winentry.cpp(12,25): error C3861: "CreateMainWindow": Bezeichner wurde nicht gefunden.
