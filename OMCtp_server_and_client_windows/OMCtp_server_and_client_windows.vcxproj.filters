@@ -9,8 +9,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="winInclude\wintype.h">
+    <ClInclude Include="winInclude\winthings.h">
       <Filter>winInclude</Filter>
     </ClInclude>
+    <ClInclude Include="winfun.h" />
+    <ClInclude Include="ingame_to_win.h" />
   </ItemGroup>
 </Project>

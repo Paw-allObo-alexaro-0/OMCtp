@@ -1,1 +1,0 @@
-typedef struct{int winInstance;}* winINSTANCE, winWINDOW;

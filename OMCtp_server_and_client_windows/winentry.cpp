@@ -5,10 +5,15 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
-#include "winInclude\wintype.h"
+#include "winfun.h"
+
+winINSTANCE winInstance;
 
 int __stdcall WinMain(winINSTANCE p_winInstance, winINSTANCE p_winPrevInstance, char* cmdLine, int winShowParam)
 {
-	winWINDOW mainWindow = CreateMainWindow(p_winInstance, cmdLine, winShowParam);
+	winInstance = p_winInstance;
+	winWINDOW mainWindow = CreateMainWindow(p_winInstance, cmdLine);
+	ShowMainWindow(&mainWindow, winShowParam);
+	command::start_omctp_client(winInstance, mainWindow);
 	return 0;
 }
