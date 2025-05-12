@@ -15,5 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)mods.h" />
   </ItemGroup>
 </Project>

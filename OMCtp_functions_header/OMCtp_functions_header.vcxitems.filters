@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="mods">
+      <UniqueIdentifier>{7d41d88c-e1c1-457b-b0cf-24ddadb808b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

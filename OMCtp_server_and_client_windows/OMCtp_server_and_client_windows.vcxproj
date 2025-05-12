@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ingame_to_win.cpp" />
     <ClCompile Include="winentry.cpp" />
+    <ClCompile Include="winfun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ingame_to_win.h" />
+    <ClInclude Include="usefun.h" />
     <ClInclude Include="winfun.h" />
-    <ClInclude Include="winInclude\winthings.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

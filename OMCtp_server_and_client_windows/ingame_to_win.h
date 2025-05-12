@@ -5,11 +5,10 @@
 |***********ingame_to_win.h - Create Windows Handles***********|
 \**************************************************************/
 
-#include "winInclude\winthings.h"
 #include <ingame_types.h>
 #include <Windows.h>
 
-winIcon get_winIcon(img p_icon)
+namespace omctpfun_win
 {
-	winICON icon = 
+	HICON get_winIcon(icon p_icon);
 }
