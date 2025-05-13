@@ -10,8 +10,8 @@
 #endif
 
 #ifndef CreateMainWindow
-#define CreateMainWindow omctpfun_win::CreateMainWindow //HWND ~(HINSTANCE p_winInstance, char* cmdLine);
+#define CreateMainWindow omctpfun_win::CreateMainWindowStd //HWND ~(HINSTANCE p_winInstance, char* cmdLine);
 #endif
 #ifndef get_winIcon
-#define get_winIcon omctpfun_win::get_winIcon //winICON ~(icon p_icon);
+#define get_winIcon omctpfun_win::get_winIconStd //HICON ~(icon p_icon);
 #endif

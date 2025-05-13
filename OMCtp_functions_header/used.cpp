@@ -2,20 +2,14 @@
 |***************OMCtp - OMC in third person mode***************|
 |**************Paw all Obo alexaro 0 - Hack24more**************|
 |********************NDVX Studios - 05/2025********************|
-|ingame_types.h - Any things you can see in or used by the game|
+|used.cpp - defines the used objects of the ingame type classes|
 \**************************************************************/
 
-#ifndef OMCTP_INGAME_TYPES_H
-#define OMCTP_INGAME_TYPES_H
+#include "used.h"
 
-class icon
+int used::icons::register_icons()
 {
-	public:
-		char* name;
-		char* id; //ingame id
-		char* path_ico;
-		char* path_png;
-		char cx;
-		char cy;
-};
-#endif
+	main_wnd = *omctp::icons::main_wnd;
+	omctp::icons::delete_pointers();
+	return 0;
+}

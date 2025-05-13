@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OMCtp_functions_header", "O
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OMCtp_server_and_client_windows", "OMCtp_server_and_client_windows\OMCtp_server_and_client_windows.vcxproj", "{1904B14E-5873-46BF-9B44-5BE397F10917}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data", "data\data.vcxitems", "{EF35BB02-563E-4262-ACBA-26F99ADFA09C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

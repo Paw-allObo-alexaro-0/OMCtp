@@ -12,5 +12,5 @@
 
 namespace omctpfun_win
 {
-	HWND CreateMainWindow(HINSTANCE p_winInstance, char* cmdLine);
-}
+	HWND CreateMainWindowStd(HINSTANCE p_winInstance, char* cmdLine);
+};

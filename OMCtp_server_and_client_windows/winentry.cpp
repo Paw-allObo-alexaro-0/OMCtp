@@ -18,8 +18,8 @@ int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR c
 {
 	winInstance = p_winInstance;
 	HWND mainWindow = CreateMainWindow(p_winInstance, cmdLine);
-	ShowMainWindow(&mainWindow, winShowParam);
-	command::start_omctp_client(winInstance, mainWindow);
+//	ShowMainWindow(&mainWindow, winShowParam);
+//	command::start_omctp_client(winInstance, mainWindow);
 	return 0;
 }
 #endif
