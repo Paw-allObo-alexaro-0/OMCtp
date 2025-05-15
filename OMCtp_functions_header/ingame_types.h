@@ -5,6 +5,8 @@
 |ingame_types.h - Any things you can see in or used by the game|
 \**************************************************************/
 
+
+
 #ifndef OMCTP_INGAME_TYPES_H
 #define OMCTP_INGAME_TYPES_H
 

@@ -5,11 +5,21 @@
 |used.cpp - defines the used objects of the ingame type classes|
 \**************************************************************/
 
+
+
 #include "used.h"
 
-int used::icons::register_icons()
+namespace used
 {
-	main_wnd = *omctp::icons::main_wnd;
-	omctp::icons::delete_pointers();
-	return 0;
+	namespace icons
+	{
+		icon main_wnd;
+		icon main_wnd_cursor;
+		int register_iconsStd()
+		{
+			main_wnd = *omctp::icons::main_wnd;
+			omctp::icons::delete_pointers();
+			return 0;
+		}
+	}
 }

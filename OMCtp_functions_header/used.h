@@ -5,15 +5,17 @@
 |*used.h - defines the used objects of the ingame type classes*|
 \**************************************************************/
 
-#include "ingame_types.h"
-#include "../data/icon.h"
+
+
+#include "..\data\icon.h"
+//#include "mods_used.h"
 
 namespace used
 {
 	namespace icons
 	{
-		int register_icons();
-		icon main_wnd;
-		icon main_wnd_cursor;
+		extern icon main_wnd;
+		extern icon main_wnd_cursor;
+		int register_iconsStd();
 	}
 }

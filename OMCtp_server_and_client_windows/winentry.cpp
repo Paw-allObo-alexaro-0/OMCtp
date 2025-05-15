@@ -5,9 +5,8 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
-#include "..\OMCtp_functions_header\mods.h"
-#include "usefun.h"
 #include "winfun.h"
+#include "..\OMCtp_functions_header\mods.h"
 
 HINSTANCE winInstance;
 

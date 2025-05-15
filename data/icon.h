@@ -6,15 +6,17 @@
 |********defines the objects of the ingame type classes********|
 \**************************************************************/
 
-#include "../OMCtp_functions_header/ingame_types.h"
+
+
+#include "..\OMCtp_functions_header\ingame_types.h"
 
 //use pointers, so you are able to delete the objects
 namespace omctp
 {
 	namespace icons
 	{
-		int register_icons();
+		extern icon* main_wnd;
+		int register_iconsStd();
 		void delete_pointers();
-		icon* main_wnd = new icon;
 	}
 }

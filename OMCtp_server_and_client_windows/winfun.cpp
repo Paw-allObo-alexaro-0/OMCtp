@@ -6,8 +6,6 @@
 \**************************************************************/
 
 #include "winfun.h"
-#include "..\OMCtp_functions_header\used.h"
-#include "usefun.h"
 
 #ifndef MAIN_WND_CURSOR
 #define MAIN_WND_CURSOR LoadCursor(NULL, IDC_CROSS)
@@ -39,7 +37,7 @@ namespace omctpfun_win
 		}
 		mainWindow = CreateWindowEx(NULL, TEXT("OMCtp"), TEXT("OMCtp"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, 1000, 1000, NULL, NULL, p_winInstance, NULL);
 	}
-	LRESULT CALLBACK winWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+	LRESULT CALLBACK winWndProcStd(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 		switch (msg)
 		{

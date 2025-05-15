@@ -5,9 +5,10 @@
 |***************winfun.h - Functions for Windows***************|
 \**************************************************************/
 
-#include <Windows.h>
 
-#include "../OMCtp_functions_header/ingame_types.h"
+
+#include <Windows.h>
+#include "usefun.h"
 #include "ingame_to_win.h"
 
 namespace omctpfun_win
