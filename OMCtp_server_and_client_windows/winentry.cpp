@@ -5,7 +5,7 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
-#include <mods.h>
+#include "..\OMCtp_functions_header\mods.h"
 #include "usefun.h"
 #include "winfun.h"
 
@@ -16,9 +16,10 @@ int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR c
 #else
 int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam)
 {
+	
 	winInstance = p_winInstance;
 	HWND mainWindow = CreateMainWindow(p_winInstance, cmdLine);
-//	ShowMainWindow(&mainWindow, winShowParam);
+	ShowMainWindow(mainWindow, winShowParam);
 //	command::start_omctp_client(winInstance, mainWindow);
 	return 0;
 }

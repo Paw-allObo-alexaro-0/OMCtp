@@ -15,3 +15,9 @@
 #ifndef get_winIcon
 #define get_winIcon omctpfun_win::get_winIconStd //HICON ~(icon p_icon);
 #endif
+#ifndef winWndProc
+#define winWndProc omctpfun_win::winWndProcStd //LRESULT CALLBACK ~(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+#endif
+#ifndef ShowMainWindow
+#define ShowMainWindow omctpfun_win::ShowMainWindowStd //void ~(HWND* hwnd, int winShowParam);
+#endif

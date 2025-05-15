@@ -7,10 +7,12 @@
 
 #include <Windows.h>
 
-#include <ingame_types.h>
+#include "../OMCtp_functions_header/ingame_types.h"
 #include "ingame_to_win.h"
 
 namespace omctpfun_win
 {
 	HWND CreateMainWindowStd(HINSTANCE p_winInstance, char* cmdLine);
+	LRESULT CALLBACK winWndProcStd(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	void ShowMainWindowStd(HWND mainWindow, int winShowParam);
 };

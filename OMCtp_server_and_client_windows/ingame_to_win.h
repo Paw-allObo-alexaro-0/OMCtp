@@ -5,7 +5,7 @@
 |*ingame_to_win.h - Create Windows Handles from ingame classes*|
 \**************************************************************/
 
-#include <ingame_types.h>
+#include "..\OMCtp_functions_header\ingame_types.h"
 #include <Windows.h>
 
 namespace omctpfun_win

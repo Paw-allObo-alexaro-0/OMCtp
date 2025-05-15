@@ -6,32 +6,13 @@
 \**************************************************************/
 
 #include "winfun.h"
-#include <used.h>
+#include "..\OMCtp_functions_header\used.h"
 #include "usefun.h"
 
 #ifndef MAIN_WND_CURSOR
 #define MAIN_WND_CURSOR LoadCursor(NULL, IDC_CROSS)
 #endif
 
-LRESULT __stdcall winWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-{
-	switch (msg)
-	{
-	case WM_CREATE:
-		break;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
-	case WM_CLOSE:
-		ShowWindow(hwnd, SW_HIDE);
-		break;
-	case WM_PAINT:
-		break;
-	default:
-		return DefWindowProc(hwnd, msg, wParam, lParam);
-	}
-	return 0;
-}
 
 namespace omctpfun_win
 {
@@ -56,7 +37,19 @@ namespace omctpfun_win
 			MessageBox(NULL, TEXT("Failed to register window class!"), TEXT("OMCtp - ERROR!"), MB_ICONERROR | MB_OK);
 			exit(0);
 		}
-		mainWindow = CreateWindowEx(NULL, TEXT("OMCtp"), TEXT("OMCtp"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, p_winInstance, NULL);
-		return 0;
+		mainWindow = CreateWindowEx(NULL, TEXT("OMCtp"), TEXT("OMCtp"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, 1000, 1000, NULL, NULL, p_winInstance, NULL);
+	}
+	LRESULT CALLBACK winWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+	{
+		switch (msg)
+		{
+			default:
+				return DefWindowProc(hwnd, msg, wParam, lParam);
+		}
+	}
+	void ShowMainWindowStd(HWND mainWindow, int winShowParam)
+	{
+		ShowWindow(mainWindow, winShowParam);
+		UpdateWindow(mainWindow);
 	}
 };

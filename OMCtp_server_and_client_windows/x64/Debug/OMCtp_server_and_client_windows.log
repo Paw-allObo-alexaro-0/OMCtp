@@ -1,2 +1,10 @@
-﻿  winfun.cpp
-  OMCtp_server_and_client_windows.vcxproj -> D:\OMCtp\x64\Debug\OMCtp_server_and_client_windows.exe
+﻿  winentry.cpp
+  winfun.cpp
+  Code wird generiert...
+D:\OMCtp\OMCtp_server_and_client_windows\winfun.cpp(46,3): warning C4065: switch-Anweisung enthält "default", aber keine case-Bezeichnungen
+D:\OMCtp\OMCtp_server_and_client_windows\winfun.cpp(39,1): warning C4715: "omctpfun_win::CreateMainWindowStd": Nicht alle Codepfade geben einen Wert zurück.
+  LINK : D:\OMCtp\x64\Debug\OMCtp_server_and_client_windows.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
+winfun.obj : error LNK2005: "class icon used::icons::main_wnd" (?main_wnd@icons@used@@3Vicon@@A) ist bereits in winentry.obj definiert.
+winfun.obj : error LNK2005: "class icon used::icons::main_wnd_cursor" (?main_wnd_cursor@icons@used@@3Vicon@@A) ist bereits in winentry.obj definiert.
+winfun.obj : error LNK2005: "class icon * omctp::icons::main_wnd" (?main_wnd@icons@omctp@@3PEAVicon@@EA) ist bereits in winentry.obj definiert.
+D:\OMCtp\x64\Debug\OMCtp_server_and_client_windows.exe : fatal error LNK1169: Mindestens ein mehrfach definiertes Symbol gefunden.
