@@ -17,8 +17,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)mods.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)used.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)usefun.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ingame_types.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)used.cpp" />
   </ItemGroup>
 </Project>

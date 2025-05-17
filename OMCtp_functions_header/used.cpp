@@ -17,6 +17,7 @@ namespace used
 		icon main_wnd_cursor;
 		int register_iconsStd()
 		{
+			omctp::icons::register_iconsStd();
 			main_wnd = *omctp::icons::main_wnd;
 			omctp::icons::delete_pointers();
 			return 0;

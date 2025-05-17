@@ -11,6 +11,6 @@ namespace omctpfun_win
 {
 	HICON get_winIconStd(icon p_icon)
 	{
-		return LoadIconA(NULL, p_icon.path_ico);
+		return (HICON) LoadImageA(NULL, p_icon.path_ico, IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
 	}
 };

@@ -66,6 +66,9 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
+    <Import Project="..\data\data.vcxitems" Label="Shared" />
+    <Import Project="..\OMCtp_client_header\OMCtp_client_header.vcxitems" Label="Shared" />
+    <Import Project="..\OMCtp_functions_header\OMCtp_functions_header.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />

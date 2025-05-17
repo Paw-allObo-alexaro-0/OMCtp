@@ -9,6 +9,7 @@
 
 #include <Windows.h>
 #include "usefun.h"
+#include "..\OMCtp_functions_header\usefun.h"
 #include "ingame_to_win.h"
 
 namespace omctpfun_win

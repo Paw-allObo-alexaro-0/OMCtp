@@ -25,6 +25,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OMCtp_server_and_client_win
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "data", "data\data.vcxitems", "{EF35BB02-563E-4262-ACBA-26F99ADFA09C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resource", "resource", "{4BAAFB4B-3155-496F-BE7C-813494FF00DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "icon", "icon", "{94913227-C64D-4D5E-8248-4B3E95A480D3}"
+	ProjectSection(SolutionItems) = preProject
+		resource\icon\main_wnd.ico = resource\icon\main_wnd.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -47,8 +54,17 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{94877FD5-6D1D-4391-A81F-B83C8B291FB5} = {524D98A2-CCCB-44A6-9434-D849078EDDB3}
+		{94913227-C64D-4D5E-8248-4B3E95A480D3} = {4BAAFB4B-3155-496F-BE7C-813494FF00DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93295DDF-0D6A-4338-84DE-5643C4E8CF84}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		data\data.vcxitems*{1904b14e-5873-46bf-9b44-5be397f10917}*SharedItemsImports = 4
+		OMCtp_client_header\OMCtp_client_header.vcxitems*{1904b14e-5873-46bf-9b44-5be397f10917}*SharedItemsImports = 4
+		OMCtp_functions_header\OMCtp_functions_header.vcxitems*{1904b14e-5873-46bf-9b44-5be397f10917}*SharedItemsImports = 4
+		OMCtp_functions_header\OMCtp_functions_header.vcxitems*{80645a4d-b522-4de4-b911-334ea0cbbe27}*SharedItemsImports = 9
+		OMCtp_client_header\OMCtp_client_header.vcxitems*{e062696f-0b42-463e-a2b2-d472383374ca}*SharedItemsImports = 9
+		data\data.vcxitems*{ef35bb02-563e-4262-acba-26f99adfa09c}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

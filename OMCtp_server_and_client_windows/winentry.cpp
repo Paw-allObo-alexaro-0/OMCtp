@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR c
 #else
 int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam)
 {
-	
+	used::icons::register_icons();
 	winInstance = p_winInstance;
 	HWND mainWindow = CreateMainWindow(p_winInstance, cmdLine);
 	ShowMainWindow(mainWindow, winShowParam);

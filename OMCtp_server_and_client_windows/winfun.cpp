@@ -36,6 +36,12 @@ namespace omctpfun_win
 			exit(0);
 		}
 		mainWindow = CreateWindowEx(NULL, TEXT("OMCtp"), TEXT("OMCtp"), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, 1000, 1000, NULL, NULL, p_winInstance, NULL);
+		if(!mainWindow)
+		{
+			MessageBox(NULL, TEXT("Failed to create main window!"), TEXT("OMCtp - ERROR!"), MB_ICONERROR | MB_OK);
+			exit(0);
+		}
+		return mainWindow;
 	}
 	LRESULT CALLBACK winWndProcStd(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{

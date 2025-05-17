@@ -2,8 +2,6 @@
 //
 // To overwrite the functions in this file, you can create a new file like this and include it to mods/usefuns.h.
 
-
-
 #ifndef CUSTOM_WIN_MAIN
 #define CUSTOM_WIN_MAIN 0 //Use this to set your own WinMain function
 #if CUSTOM_WIN_MAIN == 1
@@ -23,8 +21,4 @@
 
 #ifndef get_winIcon
 #define get_winIcon omctpfun_win::get_winIconStd //HICON ~(icon p_icon);
-#endif
-
-#ifndef register_icons
-#define register_icons register_iconsStd //int ~(void);
 #endif
