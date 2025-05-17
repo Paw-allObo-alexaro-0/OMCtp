@@ -3,24 +3,20 @@
   <PropertyGroup Label="Globals">
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <ItemsProjectGuid>{80645a4d-b522-4de4-b911-334ea0cbbe27}</ItemsProjectGuid>
+    <ItemsProjectGuid>{ef35bb02-563e-4262-acba-26f99adfa09c}</ItemsProjectGuid>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>;%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)mods.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)used.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)usefun.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)icon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)ingame_types.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)used.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)icon.cpp" />
   </ItemGroup>
 </Project>

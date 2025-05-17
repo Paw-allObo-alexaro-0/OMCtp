@@ -2,15 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="winentry.cpp" />
+    <ClCompile Include="winfun.cpp" />
+    <ClCompile Include="ingame_to_win.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="winInclude">
-      <UniqueIdentifier>{cb1f5d2d-5f58-46b8-b703-35e30c7e3ac7}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="winInclude\wintype.h">
-      <Filter>winInclude</Filter>
-    </ClInclude>
+    <ClInclude Include="winfun.h" />
+    <ClInclude Include="ingame_to_win.h" />
+    <ClInclude Include="usefun.h" />
   </ItemGroup>
 </Project>

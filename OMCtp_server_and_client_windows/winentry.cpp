@@ -5,10 +5,21 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
-#include "winInclude\wintype.h"
+#include "winfun.h"
+#include "..\OMCtp_functions_header\mods.h"
 
-int __stdcall WinMain(winINSTANCE p_winInstance, winINSTANCE p_winPrevInstance, char* cmdLine, int winShowParam)
+HINSTANCE winInstance;
+
+#if CUSTOM_WIN_MAIN == 1
+int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam){return customWinMain(p_winInstance, p_winInstancePrev, cmdLine, winShowParam);
+#else
+int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam)
 {
-	winWINDOW mainWindow = CreateMainWindow(p_winInstance, cmdLine, winShowParam);
+	used::icons::register_icons();
+	winInstance = p_winInstance;
+	HWND mainWindow = CreateMainWindow(p_winInstance, cmdLine);
+	ShowMainWindow(mainWindow, winShowParam);
+//	command::start_omctp_client(winInstance, mainWindow);
 	return 0;
 }
+#endif
