@@ -19,8 +19,8 @@ class icon
 		char* id = nullptr; //ingame id
 		char* path_ico = nullptr;
 		char* path_png = nullptr;
-		short cx;
-		short cy;
+		short cx = 0;
+		short cy = 0;
 		void set(const char* p_name, const char* p_id, const char* p_path_ico, const char* p_path_png, unsigned short p_cx, unsigned short p_cy);
 };
 #endif

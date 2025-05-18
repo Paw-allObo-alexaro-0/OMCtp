@@ -8,7 +8,6 @@
 
 
 #include "..\data\icon.h"
-//#include "mods_used.h"
 
 namespace used
 {

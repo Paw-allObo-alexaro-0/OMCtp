@@ -14,11 +14,26 @@ namespace used
 	namespace icons
 	{
 		icon main_wnd;
-		icon main_wnd_cursor;
 		int register_iconsStd()
 		{
+			// main_wnd
 			omctp::icons::register_iconsStd();
-			main_wnd = *omctp::icons::main_wnd;
+			if(main_wnd.id == nullptr)
+			{
+				main_wnd.id = omctp::icons::main_wnd->id;
+			}
+			if(main_wnd.name == nullptr)
+			{
+				main_wnd.name = omctp::icons::main_wnd->name;
+			}
+			if(main_wnd.path_ico == nullptr)
+			{
+				main_wnd.path_ico = omctp::icons::main_wnd->path_ico;
+			}
+			if(main_wnd.path_png == nullptr)
+			{
+				main_wnd.path_png = omctp::icons::main_wnd->path_png;
+			}
 			omctp::icons::delete_pointers();
 			return 0;
 		}

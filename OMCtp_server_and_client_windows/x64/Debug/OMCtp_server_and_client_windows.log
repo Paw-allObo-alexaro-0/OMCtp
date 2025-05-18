@@ -1,2 +1,3 @@
-﻿  winentry.cpp
+﻿  winfun.cpp
+D:\OMCtp\OMCtp_server_and_client_windows\winfun.cpp(52,3): warning C4065: switch-Anweisung enthält "default", aber keine case-Bezeichnungen
   OMCtp_server_and_client_windows.vcxproj -> D:\OMCtp\x64\Debug\OMCtp_server_and_client_windows.exe
