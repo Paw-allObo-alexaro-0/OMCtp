@@ -2,17 +2,18 @@
 |***************OMCtp - OMC in third person mode***************|
 |**************Paw all Obo alexaro 0 - Hack24more**************|
 |********************NDVX Studios - 05/2025********************|
-|***************winfun.h - Functions for Windows***************|
+|*****loop_win.h - sends Windows messages to the game loop*****|
 \**************************************************************/
 
 #include <Windows.h>
-#include "usefun.h"
-#include "..\OMCtp_functions_header\usefun.h"
-#include "ingame_to_win.h"
-#include "loop_win.h"
+
+extern HWND mainWindow;
+LRESULT __stdcall WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam);
 
 namespace omctpfun_win
 {
-	HWND CreateMainWindowStd(HINSTANCE p_winInstance, char* cmdLine);
-	void ShowMainWindowStd(HWND mainWindow, int winShowParam);
-};
+	void PostMessage(int p_msg, void* p_data)
+	{
+
+	}
+}
