@@ -6,10 +6,8 @@
 \**************************************************************/
 
 #include "loop_win.h"
-#include "usefun.h"
-#include "..\OMCtp_functions_header\usefun.h"
 
-LRESULT __stdcall WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
+LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
 {
 	if(p_hwnd != mainWindow)
 	{
@@ -18,17 +16,79 @@ LRESULT __stdcall WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM
 	switch (p_msg)
 	{
 		case WM_ACTIVATE:
+		case WM_ACTIVATEAPP:
 		{
 			switch (LOWORD(p_wparam))
 			{
-			case WA_INACTIVE:
-				omctpfun_win::PostMessage(GM_INACTIVATE, nullptr);
-				break;
-			case WA_ACTIVE || WA_CLICKACTIVE:
-				omctpfun_win::PostMessage(GM_ACTIVATE, nullptr);
-				break;
+				case WA_INACTIVE:
+					PostMsg(GM_MAINWIN_DEACTIVATE, nullptr);
+					break;
+				case WA_ACTIVE || WA_CLICKACTIVE:
+					PostMsg(GM_MAINWIN_ACTIVATE, nullptr);
+					break;
+				default:
+					break;
 			}
 			break;
 		}
+		case WM_CLOSE:
+		{
+			PostMsg(GM_MAINWIN_CLOSE, nullptr);
+			break;
+		}
+		case WM_COMMAND:
+		{
+			switch (HIWORD(p_wparam))
+			{
+				case 0:
+					//Todo: Menü einbauen!
+					break;
+				case 1:
+					//Todo: Tastenkombinationen einbauen!
+					break;
+				default:
+					//Todo: Buttons
+					break;
+			}
+			break;
+		}
+		case WM_COMPACTING:
+		{
+			PostMsg(GM_LOWMEM, nullptr);
+			break;
+		}
+		case WM_CONTEXTMENU:
+		{
+			if((GET_X_LPARAM(p_lparam) == -1 ) && (GET_Y_LPARAM(p_lparam) == -1) && ( (HWND)p_wparam == mainWindow))
+				PostMsg(GM_MAINWIN_CONTEXT, nullptr);
+			break;
+
+		}
+		case WM_CREATE:
+		{
+			PostMsg(GM_MAINWIN_CREATE, nullptr);
+			break;
+		}
+		case WM_DESTROY:
+		{
+			PostMsg(GM_MAINWIN_DESTROY, nullptr);
+			break;
+		}
+		case WM_DISPLAYCHANGE:
+		{
+			PostMsg(GM_MAINWIN_RELOADGRAPHICS, nullptr);
+			break;
+		}
+		case WM_DROPFILES:
+		{
+			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
+			break;
+		}
+		default:
+		{
+			return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);
+		}
 	}
+	return 0;
 }
+

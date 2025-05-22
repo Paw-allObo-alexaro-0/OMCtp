@@ -4,3 +4,18 @@
 |********************NDVX Studios - 05/2025********************|
 |****************game_loop.cpp - game main loop****************|
 \**************************************************************/
+
+//Preprocessor definitions
+#define GM_LOWMEM 0x0011
+
+#define GM_MAINWIN_ACTIVATE 0x0101
+#define GM_MAINWIN_DEACTIVATE 0x0102
+#define GM_MAINWIN_CLOSE 0x0103
+#define GM_MAINWIN_CONTEXT 0x0104
+#define GM_MAINWIN_CREATE 0x0105
+#define GM_MAINWIN_DESTROY 0x0106
+#define GM_MAINWIN_RELOADGRAPHICS 0x0107
+#define GM_MAINWIN_DROPFILES 0x0108
+
+
+void PostMsgStd(int p_msg, void* p_data);

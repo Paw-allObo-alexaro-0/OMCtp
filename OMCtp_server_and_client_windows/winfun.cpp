@@ -20,7 +20,7 @@ namespace omctpfun_win
 		WNDCLASSEX wndClass;
 		wndClass.cbSize = sizeof(wndClass);
 		wndClass.style = 0;
-		wndClass.lpfnWndProc = winWndProc;
+		wndClass.lpfnWndProc = WinWndProc;
 		wndClass.cbClsExtra = 0;
 		wndClass.cbWndExtra = 0;
 		wndClass.hInstance = p_winInstance;

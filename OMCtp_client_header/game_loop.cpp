@@ -6,3 +6,7 @@
 \**************************************************************/
 
 #include "game_loop.h"
+
+void PostMsgStd(int p_msg, void* p_data)
+{
+}

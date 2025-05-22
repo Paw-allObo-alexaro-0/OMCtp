@@ -4,7 +4,7 @@
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
     <ItemsProjectGuid>{e062696f-0b42-463e-a2b2-d472383374ca}</ItemsProjectGuid>
-    <ItemsProjectName>OMCtp_server_and_client_header</ItemsProjectName>
+    <ItemsProjectName>OMCtp_client_header</ItemsProjectName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -19,5 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)game_loop.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)usefun.h" />
   </ItemGroup>
 </Project>

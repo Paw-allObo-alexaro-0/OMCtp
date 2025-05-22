@@ -6,14 +6,15 @@
 \**************************************************************/
 
 #include <Windows.h>
+#include <windowsx.h>
+#include <shellapi.h>
+#include "usefun.h"
+#include "..\OMCtp_client_header\usefun.h"
+#include "..\OMCtp_functions_header\usefun.h"
+#include "..\OMCtp_client_header\game_loop.h"
 
 extern HWND mainWindow;
-LRESULT __stdcall WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam);
-
 namespace omctpfun_win
 {
-	void PostMessage(int p_msg, void* p_data)
-	{
-
-	}
+	LRESULT __stdcall WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam);
 }
