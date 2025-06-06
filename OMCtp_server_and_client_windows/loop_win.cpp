@@ -29,12 +29,12 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 				default:
 					break;
 			}
-			break;
+			return 0;
 		}
 		case WM_CLOSE:
 		{
 			PostMsg(GM_MAINWIN_CLOSE, nullptr);
-			break;
+			return 0;
 		}
 		case WM_COMMAND:
 		{
@@ -50,45 +50,69 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 					//Todo: Buttons
 					break;
 			}
-			break;
+			return 0;
 		}
 		case WM_COMPACTING:
 		{
 			PostMsg(GM_LOWMEM, nullptr);
-			break;
+			return 0;
 		}
 		case WM_CONTEXTMENU:
 		{
 			if((GET_X_LPARAM(p_lparam) == -1 ) && (GET_Y_LPARAM(p_lparam) == -1) && ( (HWND)p_wparam == mainWindow))
 				PostMsg(GM_MAINWIN_CONTEXT, nullptr);
 			break;
-
+			return 0;
 		}
 		case WM_CREATE:
 		{
 			PostMsg(GM_MAINWIN_CREATE, nullptr);
-			break;
+			return 0;
 		}
 		case WM_DESTROY:
 		{
 			PostMsg(GM_MAINWIN_DESTROY, nullptr);
-			break;
+			return 0;
 		}
 		case WM_DISPLAYCHANGE:
 		{
 			PostMsg(GM_MAINWIN_RELOADGRAPHICS, nullptr);
-			break;
+			return 0;
 		}
 		case WM_DROPFILES:
 		{
 			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
-			break;
+			return 0;
 		}
+		case WM_ERASEBKGND:
+		{
+			HDC hdc = GetDC(mainWindow);
+			RECT rc;
+			GetClientRect(mainWindow, &rc);
+			int width = rc.right - rc.left;
+			int height = rc.bottom - rc.top;
+			COLORREF start = RGB(0, 0, 0); // Start color (black)
+			COLORREF end = RGB(255, 255, 255); // End color (white)
+
+			for (int i = 0; i < height; i++) {
+				float ratio = (float)i / height;
+				int r = GetRValue(start) + ratio * (GetRValue(end) - GetRValue(start));
+				int g = GetGValue(start) + ratio * (GetGValue(end) - GetGValue(start));
+				int b = GetBValue(start) + ratio * (GetBValue(end) - GetBValue(start));
+
+				HBRUSH hBrush = CreateSolidBrush(RGB(r, g, b));
+				RECT line = { rc.left, rc.top + i, rc.right, rc.top + i + 1 };
+				FillRect(hdc, &line, hBrush);
+				DeleteObject(hBrush);
+			}
+			ReleaseDC(mainWindow, hdc);
+			return 1;
+		}
+		case WM_
 		default:
 		{
 			return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);
 		}
 	}
-	return 0;
 }
 
