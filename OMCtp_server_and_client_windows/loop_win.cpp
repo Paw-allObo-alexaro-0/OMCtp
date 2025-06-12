@@ -81,7 +81,7 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 		}
 		case WM_DROPFILES:
 		{
-			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
+			PostMsg(GM_WIN_DROPFILES, (void*)p_wparam);
 			return 0;
 		}
 		case WM_ERASEBKGND:
@@ -108,7 +108,25 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 			ReleaseDC(mainWindow, hdc);
 			return 1;
 		}
-		case WM_
+		case WM_INPUT:
+		{
+			//Todo: Setup Controller Input
+			return 0;
+		}
+		case WM_INPUT_DEVICE_CHANGE:
+		{
+			//Todo: Setup Controller Input
+			return 0;
+		}
+		case WM_MOUSEWHEEL:
+		{
+			PostMsg(GM_MAINWIN_MOUSEWHEEL, (void*)GET_WHEEL_DELTA_WPARAM(p_wparam));
+		}
+		case WM_MOUSELEAVE:
+		{
+			PostMsg(GM_MAINWIN_MOUSELEAVE, nullptr);
+		}
+		case WM_NOTIFY
 		default:
 		{
 			return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);
