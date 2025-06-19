@@ -143,6 +143,22 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 			PostMsg(GM_EXIT, nullptr);
 			return 0;
 		}
+		case WM_SIZE:
+		{
+			PostMsg(GM_MAINWIN_RELOADGRAPHICS, nullptr);
+			return 0;
+		}
+		case WM_SIZING:
+		{
+			PostMsg(GM_MAINWIN_SHOWBKGND, nullptr);
+			return 0;
+		}
+		case WM_SYSCOMMAND:
+		{
+			PostMsg(GM_MAINWIN_SYSCOMMAND, (void*)p_wparam);
+			return 0;
+		}
+		case WM_
 		default:
 		{
 			return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);

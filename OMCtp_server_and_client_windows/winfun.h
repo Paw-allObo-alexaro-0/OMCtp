@@ -15,4 +15,5 @@ namespace omctpfun_win
 {
 	HWND CreateMainWindowStd(HINSTANCE p_winInstance, char* cmdLine);
 	void ShowMainWindowStd(HWND mainWindow, int winShowParam);
+	void recive_messagesStd(void);
 };

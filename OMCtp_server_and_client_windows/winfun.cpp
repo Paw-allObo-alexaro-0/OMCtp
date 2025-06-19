@@ -48,4 +48,13 @@ namespace omctpfun_win
 		ShowWindow(mainWindow, winShowParam);
 		UpdateWindow(mainWindow);
 	}
+	void recive_messagesStd(void)
+	{
+		MSG msg;
+		while (true)
+		{
+			GetMessage(&msg, NULL, 0, 0);
+			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
+		}
+	}
 };

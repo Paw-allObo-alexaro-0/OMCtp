@@ -22,12 +22,8 @@ int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR c
 	mainWindow = local_mainWindow;
 	ShowMainWindow(mainWindow, winShowParam);
 	MSG msg{};
-	while(msg.message != WM_QUIT)
-	{
-		GetMessage(&msg, mainWindow, 0, 0);
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-	}
+	recive_messages();
+	GetMessage(&msg, mainWindow, 0, 0);
 //	command::start_omctp_client(winInstance, local_mainWindow);
 	return 0;
 }

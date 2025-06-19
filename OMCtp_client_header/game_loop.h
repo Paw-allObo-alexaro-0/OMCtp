@@ -20,5 +20,7 @@
 #define GM_MAINWIN_MOUSEWHEEL		0x0109
 #define GM_MAINWIN_MOUSELEAVE		0x0110
 #define GM_MAINWIN_REPAINT			0x0111
+#define GM_MAINWIN_SHOWBKGND		0x0112
+#define GM_MAINWIN_SYSCOMMAND		0x0113
 
 void PostMsgStd(int p_msg, void* p_data);
