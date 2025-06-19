@@ -81,7 +81,7 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 		}
 		case WM_DROPFILES:
 		{
-			PostMsg(GM_WIN_DROPFILES, (void*)p_wparam);
+			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
 			return 0;
 		}
 		case WM_ERASEBKGND:
@@ -121,12 +121,28 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 		case WM_MOUSEWHEEL:
 		{
 			PostMsg(GM_MAINWIN_MOUSEWHEEL, (void*)GET_WHEEL_DELTA_WPARAM(p_wparam));
+			return 0;
 		}
 		case WM_MOUSELEAVE:
 		{
 			PostMsg(GM_MAINWIN_MOUSELEAVE, nullptr);
+			return 0;
 		}
-		case WM_NOTIFY
+		case WM_NULL:
+		{
+			// Todo: Setup Auto-Cancel
+			return 0;
+		}
+		case WM_PAINT:
+		{
+			PostMsg(GM_MAINWIN_REPAINT, nullptr);
+			return 0;
+		}
+		case WM_QUIT:
+		{
+			PostMsg(GM_EXIT, nullptr);
+			return 0;
+		}
 		default:
 		{
 			return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);

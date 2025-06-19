@@ -7,6 +7,7 @@
 
 //Preprocessor definitions
 #define GM_LOWMEM					0x0001
+#define GM_EXIT						0x0002
 
 #define GM_MAINWIN_CREATE			0x0101
 #define GM_MAINWIN_ACTIVATE			0x0102
@@ -18,5 +19,6 @@
 #define GM_MAINWIN_DROPFILES		0x0108
 #define GM_MAINWIN_MOUSEWHEEL		0x0109
 #define GM_MAINWIN_MOUSELEAVE		0x0110
+#define GM_MAINWIN_REPAINT			0x0111
 
 void PostMsgStd(int p_msg, void* p_data);
