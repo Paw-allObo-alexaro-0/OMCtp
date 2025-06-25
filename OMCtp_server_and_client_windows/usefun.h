@@ -16,7 +16,10 @@
 #define ShowMainWindow omctpfun_win::ShowMainWindowStd //void ~(HWND* hwnd, int winShowParam);
 #endif
 #ifndef winWndProc
-#define winWndProc omctpfun_win::winWndProcStd //LRESULT CALLBACK ~(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+#define WinWndProc omctpfun_win::WinWndProcStd //LRESULT CALLBACK ~(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+#endif
+#ifndef recive_messages
+#define recive_messages omctpfun_win::recive_messagesStd //void ~(void);
 #endif
 
 #ifndef get_winIcon

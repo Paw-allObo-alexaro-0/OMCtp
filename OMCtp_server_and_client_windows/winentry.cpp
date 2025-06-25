@@ -9,6 +9,7 @@
 #include "winfun.h"
 
 HINSTANCE winInstance;
+HWND mainWindow;
 
 #if CUSTOM_WIN_MAIN == 1
 int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam){return customWinMain(p_winInstance, p_winInstancePrev, cmdLine, winShowParam);
@@ -17,9 +18,13 @@ int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR c
 {
 	used::icons::register_icons();
 	winInstance = p_winInstance;
-	HWND mainWindow = CreateMainWindow(p_winInstance, cmdLine);
+	HWND local_mainWindow = CreateMainWindow(p_winInstance, cmdLine);
+	mainWindow = local_mainWindow;
 	ShowMainWindow(mainWindow, winShowParam);
-//	command::start_omctp_client(winInstance, mainWindow);
+	MSG msg{};
+	recive_messages();
+	GetMessage(&msg, mainWindow, 0, 0);
+//	command::start_omctp_client(winInstance, local_mainWindow);
 	return 0;
 }
 #endif

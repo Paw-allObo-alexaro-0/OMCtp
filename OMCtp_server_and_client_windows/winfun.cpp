@@ -20,7 +20,7 @@ namespace omctpfun_win
 		WNDCLASSEX wndClass;
 		wndClass.cbSize = sizeof(wndClass);
 		wndClass.style = 0;
-		wndClass.lpfnWndProc = winWndProc;
+		wndClass.lpfnWndProc = WinWndProc;
 		wndClass.cbClsExtra = 0;
 		wndClass.cbWndExtra = 0;
 		wndClass.hInstance = p_winInstance;
@@ -43,17 +43,18 @@ namespace omctpfun_win
 		}
 		return mainWindow;
 	}
-	LRESULT CALLBACK winWndProcStd(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
-	{
-		switch (msg)
-		{
-			default:
-				return DefWindowProc(hwnd, msg, wParam, lParam);
-		}
-	}
 	void ShowMainWindowStd(HWND mainWindow, int winShowParam)
 	{
 		ShowWindow(mainWindow, winShowParam);
 		UpdateWindow(mainWindow);
+	}
+	void recive_messagesStd(void)
+	{
+		MSG msg;
+		while (true)
+		{
+			GetMessage(&msg, NULL, 0, 0);
+			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
+		}
 	}
 };
