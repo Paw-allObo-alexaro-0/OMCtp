@@ -163,7 +163,6 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 			PostMsg(GM_SYSTIMECHANGE, nullptr);
 			return 0;
 		}
-		case WM_TOUCH
 		default:
 		{
 			return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);
