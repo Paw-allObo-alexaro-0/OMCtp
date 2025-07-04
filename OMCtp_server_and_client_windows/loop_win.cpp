@@ -7,7 +7,8 @@
 
 #include "loop_win.h"
 
-LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
+#ifndef RemVanilla_WinWndProc
+LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
 {
 	if(p_hwnd != mainWindow)
 	{
@@ -170,3 +171,4 @@ LRESULT __stdcall omctpfun_win::WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_
 	}
 }
 
+#endif // RemVanilla_WinWndProc

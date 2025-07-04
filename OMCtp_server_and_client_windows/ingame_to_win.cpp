@@ -7,10 +7,14 @@
 
 #include "ingame_to_win.h"
 
+#ifndef RemVanilla_omctpfun_win
 namespace omctpfun_win
 {
-	HICON get_winIconStd(icon p_icon)
+#ifndef RemVamilla_get_winIcon
+	HICON get_winIcon(icon p_icon)
 	{
 		return (HICON) LoadImageA(NULL, p_icon.path_ico, IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
 	}
+#endif // RemVamilla_get_winIcon
 };
+#endif // RemVanilla_omctpfun_win

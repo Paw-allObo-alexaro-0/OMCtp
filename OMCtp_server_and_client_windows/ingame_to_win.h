@@ -5,12 +5,14 @@
 |*ingame_to_win.h - Create Windows Handles from ingame classes*|
 \**************************************************************/
 
-
-
 #include <Windows.h>
-#include "..\OMCtp_functions_header\used.h"
+#include "../OMCtp_functions_header/ingame_types.h"
 
+#ifndef RemVanilla_omctpfun_win
 namespace omctpfun_win
 {
-	HICON get_winIconStd(icon p_icon);
+#ifndef RemVamilla_get_winIcon
+	HICON get_winIcon(icon p_icon);
+#endif // RemVamilla_get_winIcon
 };
+#endif // RemVanilla_omctpfun_win

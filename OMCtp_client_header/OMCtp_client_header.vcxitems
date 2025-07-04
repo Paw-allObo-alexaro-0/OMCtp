@@ -19,6 +19,5 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)game_loop.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)usefun.h" />
   </ItemGroup>
 </Project>

@@ -9,7 +9,6 @@
   <ItemGroup>
     <ClInclude Include="winfun.h" />
     <ClInclude Include="ingame_to_win.h" />
-    <ClInclude Include="usefun.h" />
     <ClInclude Include="loop_win.h" />
   </ItemGroup>
 </Project>

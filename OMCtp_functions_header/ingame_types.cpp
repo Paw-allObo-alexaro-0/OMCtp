@@ -7,6 +7,7 @@
 
 #include "ingame_types.h"
 
+#ifndef RemVanilla_icon_set
 void icon::set(const char* p_name, const char* p_id, const char* p_path_ico, const char* p_path_png, unsigned short p_cx, unsigned short p_cy)
 {
 	if(name != nullptr) delete[] name;
@@ -49,3 +50,4 @@ void icon::set(const char* p_name, const char* p_id, const char* p_path_ico, con
 	cy = p_cy;
 	return;
 }
+#endif // RemVanilla_icon_set

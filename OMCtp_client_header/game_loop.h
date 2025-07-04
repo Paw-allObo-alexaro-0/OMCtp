@@ -5,6 +5,7 @@
 |****************game_loop.cpp - game main loop****************|
 \**************************************************************/
 
+#ifndef RemoveVanilla_PostMsg
 //Preprocessor definitions
 #define GM_SYSTIMECHANGE			0x0001
 #define GM_LOWMEM					0x0002
@@ -23,5 +24,8 @@
 #define GM_MAINWIN_REPAINT			0x010B
 #define GM_MAINWIN_SHOWBKGND		0x010C
 #define GM_MAINWIN_SYSCOMMAND		0x010D
+#endif //RemoveVanilla_PostMsg
 
-void PostMsgStd(int p_msg, void* p_data);
+#ifndef RemVanilla_PostMsg
+void PostMsg(int p_msg, void* p_data);
+#endif //RemVanilla_PostMsg

@@ -9,15 +9,19 @@
 
 #include "used.h"
 
+#ifndef RemVanilla_used
 namespace used
 {
+#ifndef RemVanilla_icons
 	namespace icons
 	{
 		icon main_wnd;
-		int register_iconsStd()
+
+#ifndef RemVanilla_register_icons
+		int register_icons()
 		{
 			// main_wnd
-			omctp::icons::register_iconsStd();
+			omctp::icons::register_icons();
 			if(main_wnd.id == nullptr)
 			{
 				main_wnd.id = omctp::icons::main_wnd->id;
@@ -37,5 +41,8 @@ namespace used
 			omctp::icons::delete_pointers();
 			return 0;
 		}
+#endif // RemVanilla_register_icons
 	}
+#endif // RemVanilla_icons
 }
+#endif // RemVanilla_used

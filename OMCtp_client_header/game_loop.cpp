@@ -7,6 +7,8 @@
 
 #include "game_loop.h"
 
-void PostMsgStd(int p_msg, void* p_data)
+#ifndef RemVanilla_PostMsg
+void PostMsg(int p_msg, void* p_data)
 {
 }
+#endif //RemVanilla_PostMsg

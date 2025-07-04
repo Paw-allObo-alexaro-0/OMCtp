@@ -7,14 +7,15 @@
 
 #include "winfun.h"
 
-#ifndef MAIN_WND_CURSOR
+#ifndef RemVanilla_MAIN_WND_CURSOR
 #define MAIN_WND_CURSOR LoadCursor(NULL, IDC_CROSS)
-#endif
+#endif // RemVanilla_MAIN_WND_CURSOR
 
-
+#ifndef RemVanilla_omctpfun_win
 namespace omctpfun_win
 {
-	HWND CreateMainWindowStd(HINSTANCE p_winInstance, char* cmdLine)
+#ifndef RemVanilla_CreateMainWindow
+	HWND CreateMainWindow(HINSTANCE p_winInstance, char* cmdLine)
 	{
 		HWND mainWindow;
 		WNDCLASSEX wndClass;
@@ -43,12 +44,18 @@ namespace omctpfun_win
 		}
 		return mainWindow;
 	}
-	void ShowMainWindowStd(HWND mainWindow, int winShowParam)
+#endif // RemVanilla_CreateMainWindow
+
+#ifndef RemVanilla_ShowMainWindow
+	void ShowMainWindow(HWND mainWindow, int winShowParam)
 	{
 		ShowWindow(mainWindow, winShowParam);
 		UpdateWindow(mainWindow);
 	}
-	void recive_messagesStd(void)
+#endif // RemVanilla_ShowMainWindow
+
+#ifndef RemVanilla_recive_messages
+	void recive_messages(void)
 	{
 		MSG msg;
 		while (true)
@@ -57,4 +64,6 @@ namespace omctpfun_win
 			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
 		}
 	}
+#endif // RemVanilla_recive_messages
 };
+#endif // RemVanilla_omctpfun_win

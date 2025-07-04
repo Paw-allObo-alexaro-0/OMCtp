@@ -6,14 +6,21 @@
 \**************************************************************/
 
 #include <Windows.h>
-#include "usefun.h"
-#include "..\OMCtp_functions_header\usefun.h"
 #include "ingame_to_win.h"
 #include "loop_win.h"
+#include "../OMCtp_functions_header/used.h"
 
+#ifndef RemVanilla_omctpfun_win
 namespace omctpfun_win
 {
-	HWND CreateMainWindowStd(HINSTANCE p_winInstance, char* cmdLine);
-	void ShowMainWindowStd(HWND mainWindow, int winShowParam);
-	void recive_messagesStd(void);
+#ifndef RemVanilla_CreateMainWindow
+	HWND CreateMainWindow(HINSTANCE p_winInstance, char* cmdLine);
+#endif // RemVanilla_CreateMainWindow
+#ifndef RemVanilla_ShowMainWindow
+	void ShowMainWindow(HWND mainWindow, int winShowParam);
+#endif // RemVanilla_ShowMainWindow
+#ifndef RemVanilla_recive_messages
+	void recive_messages(void);
+#endif // RemVanilla_recive_messages
 };
+#endif // RemVanilla_omctpfun_win
