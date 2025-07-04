@@ -5,26 +5,26 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
-#include "..\OMCtp_functions_header\mods.h"
 #include "winfun.h"
 
+#ifndef RemVanilla_winInstance
 HINSTANCE winInstance;
+#endif // RemVanilla_winInstance
+#ifndef RemVanilla_mainWindow
 HWND mainWindow;
+#endif // RemVanilla_mainWindow
 
-#if CUSTOM_WIN_MAIN == 1
-int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam){return customWinMain(p_winInstance, p_winInstancePrev, cmdLine, winShowParam);
-#else
+#ifndef RemVanilla_WinMain
 int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam)
 {
 	used::icons::register_icons();
 	winInstance = p_winInstance;
-	HWND local_mainWindow = CreateMainWindow(p_winInstance, cmdLine);
+	HWND local_mainWindow = omctpfun_win::CreateMainWindow(p_winInstance, cmdLine);
 	mainWindow = local_mainWindow;
-	ShowMainWindow(mainWindow, winShowParam);
+	omctpfun_win::ShowMainWindow(mainWindow, winShowParam);
 	MSG msg{};
-	recive_messages();
-	GetMessage(&msg, mainWindow, 0, 0);
+	omctpfun_win::recive_messages();
 //	command::start_omctp_client(winInstance, local_mainWindow);
 	return 0;
 }
-#endif
+#endif // RemVanilla_WinMain

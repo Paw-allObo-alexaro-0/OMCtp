@@ -9,12 +9,19 @@
 
 #include "..\data\icon.h"
 
+#ifndef RemVanilla_used 
 namespace used
 {
+#ifndef RemVanilla_icons
 	namespace icons
 	{
 		extern icon main_wnd;
 		extern icon main_wnd_cursor;
-		int register_iconsStd();
+
+#ifndef RemVanilla_register_icons
+		int register_icons();
+#endif // RemVanilla_register_icons
 	}
+#endif // RemVanilla_icons
 }
+#endif // RemVanilla_used

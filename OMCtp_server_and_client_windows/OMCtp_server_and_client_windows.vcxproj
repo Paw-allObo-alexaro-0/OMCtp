@@ -27,7 +27,6 @@
   <ItemGroup>
     <ClInclude Include="ingame_to_win.h" />
     <ClInclude Include="loop_win.h" />
-    <ClInclude Include="usefun.h" />
     <ClInclude Include="winfun.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

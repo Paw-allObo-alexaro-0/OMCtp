@@ -8,13 +8,17 @@
 #include <Windows.h>
 #include <windowsx.h>
 #include <shellapi.h>
-#include "usefun.h"
-#include "..\OMCtp_client_header\usefun.h"
-#include "..\OMCtp_functions_header\usefun.h"
 #include "..\OMCtp_client_header\game_loop.h"
 
+#ifndef RemVanilla_mainWindow
 extern HWND mainWindow;
+#endif // RemVanilla_mainWindow
+
+#ifndef RemVanilla_omctpfun_win
 namespace omctpfun_win
 {
-	LRESULT __stdcall WinWndProcStd(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam);
+#ifndef RemVanilla_WinWndProc
+	LRESULT __stdcall WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam);
+#endif // RemVanilla_WinWndProc
 }
+#endif // RemVanilla_omctpfun_win

@@ -12,6 +12,7 @@
 
 #include "cstring"
 
+#ifndef RemVanilla_icon
 class icon
 {
 	public:
@@ -23,4 +24,5 @@ class icon
 		short cy = 0;
 		void set(const char* p_name, const char* p_id, const char* p_path_ico, const char* p_path_png, unsigned short p_cx, unsigned short p_cy);
 };
+#endif // RemVanilla_icon
 #endif
