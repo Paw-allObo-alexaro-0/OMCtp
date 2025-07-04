@@ -5,6 +5,8 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
+#include "../mods/mods.h"
+
 #include "winfun.h"
 
 #ifndef RemVanilla_winInstance

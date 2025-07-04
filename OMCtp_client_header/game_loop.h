@@ -5,7 +5,21 @@
 |****************game_loop.cpp - game main loop****************|
 \**************************************************************/
 
-#ifndef RemoveVanilla_PostMsg
+#ifndef RemMsgQueue
+#include <queue>
+
+class message
+{
+public:
+	int msg;
+	void* data;
+	message(int p_msg, void* p_data);
+};
+
+extern std::queue<message> i;
+#endif //RemMsgQueue
+
+#ifndef RemVanilla_PostMsg
 //Preprocessor definitions
 #define GM_SYSTIMECHANGE			0x0001
 #define GM_LOWMEM					0x0002
@@ -29,3 +43,13 @@
 #ifndef RemVanilla_PostMsg
 void PostMsg(int p_msg, void* p_data);
 #endif //RemVanilla_PostMsg
+
+#ifndef RemMsgQueue
+#define GT_IDLE		0x0000
+#define GT_CHKMSG	0x0001
+#define GT_DRAW		0x0002
+#define GT_REDRAW	0x0003
+#define GT_TICK		0x0004
+
+bool loop(char task);// Returns true if GT_IDLE is set, there was a message, anything was drawn succesfully on the screen, GT_REDRAW was succesful or a tick was processed
+#endif //RemMsgQueue

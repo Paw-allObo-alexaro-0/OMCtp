@@ -3,14 +3,11 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)used.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="mods">
-      <UniqueIdentifier>{7d41d88c-e1c1-457b-b0cf-24ddadb808b4}</UniqueIdentifier>
-    </Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)used.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ingame_types.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)timer.cpp" />
   </ItemGroup>
 </Project>
