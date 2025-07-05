@@ -87,26 +87,6 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 		}
 		case WM_ERASEBKGND:
 		{
-			HDC hdc = GetDC(mainWindow);
-			RECT rc;
-			GetClientRect(mainWindow, &rc);
-			int width = rc.right - rc.left;
-			int height = rc.bottom - rc.top;
-			COLORREF start = RGB(0, 0, 0); // Start color (black)
-			COLORREF end = RGB(255, 255, 255); // End color (white)
-
-			for (int i = 0; i < height; i++) {
-				float ratio = (float)i / height;
-				int r = GetRValue(start) + ratio * (GetRValue(end) - GetRValue(start));
-				int g = GetGValue(start) + ratio * (GetGValue(end) - GetGValue(start));
-				int b = GetBValue(start) + ratio * (GetBValue(end) - GetBValue(start));
-
-				HBRUSH hBrush = CreateSolidBrush(RGB(r, g, b));
-				RECT line = { rc.left, rc.top + i, rc.right, rc.top + i + 1 };
-				FillRect(hdc, &line, hBrush);
-				DeleteObject(hBrush);
-			}
-			ReleaseDC(mainWindow, hdc);
 			return 1;
 		}
 		case WM_INPUT:
@@ -136,6 +116,27 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 		}
 		case WM_PAINT:
 		{
+			HDC hdc = GetDC(mainWindow);
+			RECT rc;
+			GetClientRect(mainWindow, &rc);
+			int width = rc.right - rc.left;
+			int height = rc.bottom - rc.top;
+			COLORREF start = RGB(0, 0, 0); // Start color (black)
+			COLORREF end = RGB(255, 255, 255); // End color (white)
+
+			for (int i = 0; i < height; i++) {
+				float ratio = (float)i / height;
+				int r = GetRValue(start) + ratio * (GetRValue(end) - GetRValue(start));
+				int g = GetGValue(start) + ratio * (GetGValue(end) - GetGValue(start));
+				int b = GetBValue(start) + ratio * (GetBValue(end) - GetBValue(start));
+
+				HBRUSH hBrush = CreateSolidBrush(RGB(r, g, b));
+				RECT line = { rc.left, rc.top + i, rc.right, rc.top + i + 1 };
+				FillRect(hdc, &line, hBrush);
+				DeleteObject(hBrush);
+			}
+			ReleaseDC(mainWindow, hdc);
+			ValidateRect(mainWindow, nullptr);
 			PostMsg(GM_MAINWIN_REPAINT, nullptr);
 			return 0;
 		}

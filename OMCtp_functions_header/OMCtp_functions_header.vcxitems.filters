@@ -3,11 +3,9 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)used.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)used.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ingame_types.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)timer.cpp" />
   </ItemGroup>
 </Project>

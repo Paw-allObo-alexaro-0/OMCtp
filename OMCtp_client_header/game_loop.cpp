@@ -31,7 +31,6 @@ bool loop(char task)
 	switch (task)
 	{
 	case GT_IDLE:
-		// Handle idle state
 		return true;
 	case GT_CHKMSG:
 		if (!i.empty())

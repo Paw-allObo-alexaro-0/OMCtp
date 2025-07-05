@@ -6,6 +6,7 @@
 \**************************************************************/
 
 #include "winfun.h"
+#include "timer.h"
 
 #ifndef RemVanilla_MAIN_WND_CURSOR
 #define MAIN_WND_CURSOR LoadCursor(NULL, IDC_CROSS)
@@ -57,11 +58,19 @@ namespace omctpfun_win
 #ifndef RemVanilla_recive_messages
 	void recive_messages(void)
 	{
+		LARGE_INTEGER time;
+		LARGE_INTEGER old_time = {};
 		MSG msg;
 		while (true)
 		{
 			GetMessage(&msg, NULL, 0, 0);
 			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
+			time = mhighres_timer();
+			if(old_time.QuadPart + 1000000 < time.QuadPart)
+			{
+				old_time = time;
+				loop(GT_CHKMSG);
+			}
 		}
 	}
 #endif // RemVanilla_recive_messages

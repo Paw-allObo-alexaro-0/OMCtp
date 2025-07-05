@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClCompile Include="ingame_to_win.cpp" />
     <ClCompile Include="loop_win.cpp" />
+    <ClCompile Include="timer.cpp" />
     <ClCompile Include="winentry.cpp" />
     <ClCompile Include="winfun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ingame_to_win.h" />
     <ClInclude Include="loop_win.h" />
+    <ClInclude Include="timer.h" />
     <ClInclude Include="winfun.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

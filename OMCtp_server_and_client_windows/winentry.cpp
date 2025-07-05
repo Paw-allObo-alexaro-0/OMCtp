@@ -19,6 +19,7 @@ HWND mainWindow;
 #ifndef RemVanilla_WinMain
 int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam)
 {
+	loop(GT_IDLE);
 	used::icons::register_icons();
 	winInstance = p_winInstance;
 	HWND local_mainWindow = omctpfun_win::CreateMainWindow(p_winInstance, cmdLine);

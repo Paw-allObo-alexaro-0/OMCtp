@@ -13,4 +13,4 @@
 #include <time.h>
 #endif
 
-int mhighres_timer(int query_init);
+LARGE_INTEGER mhighres_timer();
