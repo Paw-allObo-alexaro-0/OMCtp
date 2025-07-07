@@ -20,7 +20,7 @@ namespace omctpfun_win
 	void ShowMainWindow(HWND mainWindow, int winShowParam);
 #endif // RemVanilla_ShowMainWindow
 #ifndef RemVanilla_recive_messages
-	void recive_messages(void);
+	void receive_messages(void);
 #endif // RemVanilla_recive_messages
 };
 #endif // RemVanilla_omctpfun_win

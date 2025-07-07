@@ -1,2 +1,8 @@
-﻿  winfun.cpp
+﻿  loop_win.cpp
+D:\OMCtp\OMCtp_server_and_client_windows\loop_win.cpp(130,11): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+D:\OMCtp\OMCtp_server_and_client_windows\loop_win.cpp(131,11): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+D:\OMCtp\OMCtp_server_and_client_windows\loop_win.cpp(132,11): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+  winfun.cpp
+  Code wird generiert...
+D:\OMCtp\OMCtp_server_and_client_windows\loop_win.cpp(174,1): warning C4715: "omctpfun_win::WinWndProc": Nicht alle Codepfade geben einen Wert zurück.
   OMCtp_server_and_client_windows.vcxproj -> D:\OMCtp\x64\Debug\OMCtp_server_and_client_windows.exe

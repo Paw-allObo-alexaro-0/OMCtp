@@ -6,6 +6,7 @@
 \**************************************************************/
 
 #include "loop_win.h"
+#include  "timer.h"
 
 #ifndef RemVanilla_WinWndProc
 LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
@@ -42,10 +43,10 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 			switch (HIWORD(p_wparam))
 			{
 				case 0:
-					//Todo: Menü einbauen!
+					//Todo: Add Menu!
 					break;
 				case 1:
-					//Todo: Tastenkombinationen einbauen!
+					//Todo: Add Accs!
 					break;
 				default:
 					//Todo: Buttons
@@ -173,3 +174,29 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 }
 
 #endif // RemVanilla_WinWndProc
+
+#ifndef RemVanilla_recive_messages
+namespace omctpfun_win
+{
+	void receive_messages(void)
+	{
+		LARGE_INTEGER time;
+		LARGE_INTEGER old_time = {};
+		MSG msg;
+		while (true)
+		{
+			GetMessage(&msg, NULL, 0, 0);
+			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
+			time = mhighres_timer();
+			loop(GT_CHKMSG);
+
+			if (old_time.QuadPart + 10000 < time.QuadPart)
+			{
+				old_time = time;
+				loop(GT_TICK);
+				loop(GT_DRAW);
+			}
+		}
+	}
+}
+#endif // RemVanilla_recive_messages
