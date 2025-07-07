@@ -6,6 +6,7 @@
 \**************************************************************/
 
 #include "loop_win.h"
+#include  "timer.h"
 
 #ifndef RemVanilla_WinWndProc
 LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
@@ -42,10 +43,10 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 			switch (HIWORD(p_wparam))
 			{
 				case 0:
-					//Todo: Menü einbauen!
+					//Todo: Add Menu!
 					break;
 				case 1:
-					//Todo: Tastenkombinationen einbauen!
+					//Todo: Add Accs!
 					break;
 				default:
 					//Todo: Buttons
@@ -85,30 +86,6 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
 			return 0;
 		}
-		case WM_ERASEBKGND:
-		{
-			HDC hdc = GetDC(mainWindow);
-			RECT rc;
-			GetClientRect(mainWindow, &rc);
-			int width = rc.right - rc.left;
-			int height = rc.bottom - rc.top;
-			COLORREF start = RGB(0, 0, 0); // Start color (black)
-			COLORREF end = RGB(255, 255, 255); // End color (white)
-
-			for (int i = 0; i < height; i++) {
-				float ratio = (float)i / height;
-				int r = GetRValue(start) + ratio * (GetRValue(end) - GetRValue(start));
-				int g = GetGValue(start) + ratio * (GetGValue(end) - GetGValue(start));
-				int b = GetBValue(start) + ratio * (GetBValue(end) - GetBValue(start));
-
-				HBRUSH hBrush = CreateSolidBrush(RGB(r, g, b));
-				RECT line = { rc.left, rc.top + i, rc.right, rc.top + i + 1 };
-				FillRect(hdc, &line, hBrush);
-				DeleteObject(hBrush);
-			}
-			ReleaseDC(mainWindow, hdc);
-			return 1;
-		}
 		case WM_INPUT:
 		{
 			//Todo: Setup Controller Input
@@ -136,6 +113,27 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 		}
 		case WM_PAINT:
 		{
+			HDC hdc = GetDC(mainWindow);
+			RECT rc;
+			GetClientRect(mainWindow, &rc);
+			int width = rc.right - rc.left;
+			int height = rc.bottom - rc.top;
+			COLORREF start = RGB(0, 0, 0); // Start color (black)
+			COLORREF end = RGB(255, 255, 255); // End color (white)
+
+			for (int i = 0; i < height; i++) {
+				float ratio = (float)i / height;
+				int r = GetRValue(start) + ratio * (GetRValue(end) - GetRValue(start));
+				int g = GetGValue(start) + ratio * (GetGValue(end) - GetGValue(start));
+				int b = GetBValue(start) + ratio * (GetBValue(end) - GetBValue(start));
+
+				HBRUSH hBrush = CreateSolidBrush(RGB(r, g, b));
+				RECT line = { rc.left, rc.top + i, rc.right, rc.top + i + 1 };
+				FillRect(hdc, &line, hBrush);
+				DeleteObject(hBrush);
+			}
+			ReleaseDC(mainWindow, hdc);
+			ValidateRect(mainWindow, nullptr);
 			PostMsg(GM_MAINWIN_REPAINT, nullptr);
 			return 0;
 		}
@@ -172,3 +170,29 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 }
 
 #endif // RemVanilla_WinWndProc
+
+#ifndef RemVanilla_recive_messages
+namespace omctpfun_win
+{
+	void receive_messages(void)
+	{
+		LARGE_INTEGER time;
+		LARGE_INTEGER old_time = {};
+		MSG msg;
+		while (true)
+		{
+			GetMessage(&msg, NULL, 0, 0);
+			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
+			time = mhighres_timer();
+			loop(GT_CHKMSG);
+
+			if (old_time.QuadPart + 10000 < time.QuadPart)
+			{
+				old_time = time;
+				loop(GT_TICK);
+				loop(GT_DRAW);
+			}
+		}
+	}
+}
+#endif // RemVanilla_recive_messages

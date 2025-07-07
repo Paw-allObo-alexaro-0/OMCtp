@@ -5,11 +5,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)used.h" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="mods">
-      <UniqueIdentifier>{7d41d88c-e1c1-457b-b0cf-24ddadb808b4}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)used.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ingame_types.cpp" />
   </ItemGroup>

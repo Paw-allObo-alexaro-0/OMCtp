@@ -5,10 +5,12 @@
     <ClCompile Include="winfun.cpp" />
     <ClCompile Include="ingame_to_win.cpp" />
     <ClCompile Include="loop_win.cpp" />
+    <ClCompile Include="timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winfun.h" />
     <ClInclude Include="ingame_to_win.h" />
     <ClInclude Include="loop_win.h" />
+    <ClInclude Include="timer.h" />
   </ItemGroup>
 </Project>

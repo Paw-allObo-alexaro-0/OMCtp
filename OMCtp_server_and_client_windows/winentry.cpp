@@ -5,6 +5,10 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
+#define WIN
+
+#include "../mods/mods.h"
+
 #include "winfun.h"
 
 #ifndef RemVanilla_winInstance
@@ -17,14 +21,13 @@ HWND mainWindow;
 #ifndef RemVanilla_WinMain
 int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR cmdLine, int winShowParam)
 {
-	used::icons::register_icons();
-	winInstance = p_winInstance;
+	winInstance = p_winInstance; // Make instance-handle available globally
+
+	// Create the main window
 	HWND local_mainWindow = omctpfun_win::CreateMainWindow(p_winInstance, cmdLine);
 	mainWindow = local_mainWindow;
-	omctpfun_win::ShowMainWindow(mainWindow, winShowParam);
-	MSG msg{};
-	omctpfun_win::recive_messages();
-//	command::start_omctp_client(winInstance, local_mainWindow);
+	omctpfun_win::receive_messages(); // Start receiving messages
+//	command::start("omctp", "sc", winInstance, local_mainWindow);
 	return 0;
 }
 #endif // RemVanilla_WinMain
