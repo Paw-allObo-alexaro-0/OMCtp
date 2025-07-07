@@ -86,10 +86,6 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
 			return 0;
 		}
-		case WM_ERASEBKGND:
-		{
-			return 1;
-		}
 		case WM_INPUT:
 		{
 			//Todo: Setup Controller Input
