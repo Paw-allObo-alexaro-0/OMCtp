@@ -5,7 +5,9 @@
 |****************game_loop.cpp - game main loop****************|
 \**************************************************************/
 
-#ifndef RemMsgQueue
+#include "winactions.h"
+
+#ifndef RemVanilla_MsgQueue
 #include <queue>
 
 class message

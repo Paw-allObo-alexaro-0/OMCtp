@@ -6,11 +6,13 @@
     <ClCompile Include="ingame_to_win.cpp" />
     <ClCompile Include="loop_win.cpp" />
     <ClCompile Include="timer.cpp" />
+    <ClCompile Include="winactions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="winfun.h" />
     <ClInclude Include="ingame_to_win.h" />
     <ClInclude Include="loop_win.h" />
     <ClInclude Include="timer.h" />
+    <ClInclude Include="winactions.h" />
   </ItemGroup>
 </Project>

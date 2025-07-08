@@ -5,8 +5,6 @@
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
 
-#define WIN
-
 #include "../mods/mods.h"
 
 #include "winfun.h"

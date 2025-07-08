@@ -37,7 +37,31 @@ bool loop(char task)
 		{
 			message msg = i.front();
 			i.pop();
+
 			// Process message
+
+			switch (msg.msg)
+			{
+				case GM_SYSTIMECHANGE:
+					// Handle system time change
+					break;
+				case GM_LOWMEM:
+					// Handle low memory condition
+					break;
+				case GM_EXIT:
+					exit(0);
+				case GM_MAINWIN_CREATE:
+					ShowMainWindow();
+					break;
+				case GM_MAINWIN_ACTIVATE:
+					loop(GT_DRAW);
+					break;
+				case GM_MAINWIN_DEACTIVATE:
+					// Handle main window deactivation
+					break;
+				case GM_MAINWIN_CLOSE:
+
+			}
 			return true;
 		}
 		return false;

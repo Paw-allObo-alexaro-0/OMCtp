@@ -60,13 +60,5 @@ namespace omctpfun_win
 		return mainWindow;
 	}
 #endif // RemVanilla_CreateMainWindow
-
-#ifndef RemVanilla_ShowMainWindow
-	void ShowMainWindow(HWND mainWindow, int winShowParam)
-	{
-		ShowWindow(mainWindow, winShowParam);
-		UpdateWindow(mainWindow);
-	}
-#endif // RemVanilla_ShowMainWindow
 };
 #endif // RemVanilla_omctpfun_win

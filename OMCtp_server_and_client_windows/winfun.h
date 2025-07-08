@@ -16,9 +16,6 @@ namespace omctpfun_win
 #ifndef RemVanilla_CreateMainWindow
 	HWND CreateMainWindow(HINSTANCE p_winInstance, char* cmdLine);
 #endif // RemVanilla_CreateMainWindow
-#ifndef RemVanilla_ShowMainWindow
-	void ShowMainWindow(HWND mainWindow, int winShowParam);
-#endif // RemVanilla_ShowMainWindow
 #ifndef RemVanilla_recive_messages
 	void receive_messages(void);
 #endif // RemVanilla_recive_messages
