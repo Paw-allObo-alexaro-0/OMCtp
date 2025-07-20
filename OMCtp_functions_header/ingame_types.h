@@ -5,6 +5,8 @@
 |ingame_types.h - Any things you can see in or used by the game|
 \**************************************************************/
 
+#include "../OMCtp_functions_header/sysinfo.h"
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #ifndef OMCTP_INGAME_TYPES_H

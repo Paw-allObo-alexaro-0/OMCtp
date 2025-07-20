@@ -5,7 +5,16 @@
 |****************game_loop.cpp - game main loop****************|
 \**************************************************************/
 
-#include "winactions.h"
+#include "../OMCtp_functions_header/sysinfo.h"
+
+#ifndef RemVanillaDestroyMainWindow
+#ifdef WINDOWS
+#define DestroyMainWindow DestroyWinMainWindow
+#define ShowMainWindow ShowWinMainWindow
+#define ExitProg ExitProgWin
+#define DrawBkgnd DrawBkgndWin
+#endif // WINDOWS
+#endif // RemVanillaDestroyMainWindow
 
 #ifndef RemVanilla_MsgQueue
 #include <queue>
@@ -21,6 +30,13 @@ public:
 extern std::queue<message> i;
 #endif //RemMsgQueue
 
+#ifdef WINDOWS
+extern void DestroyWinMainWindow(void);
+extern void ShowWinMainWindow(void);
+extern void ExitProgWin(void);
+extern void DrawBkgndWin(void);
+#endif // WINDOWS
+
 #ifndef RemVanilla_PostMsg
 //Preprocessor definitions
 #define GM_SYSTIMECHANGE			0x0001
@@ -34,8 +50,8 @@ extern std::queue<message> i;
 #define GM_MAINWIN_DESTROY			0x0105
 #define GM_MAINWIN_CONTEXT			0x0106
 #define GM_MAINWIN_RELOADGRAPHICS	0x0107
-#define GM_MAINWIN_DROPFILES		0x0108
-#define GM_MAINWIN_MOUSEWHEEL		0x0109
+#define GM_MAINWIN_DROPFILES_WIN	0x0108
+#define GM_MAINWIN_MOUSEWHEEL_WIN	0x0109
 #define GM_MAINWIN_MOUSELEAVE		0x010A
 #define GM_MAINWIN_REPAINT			0x010B
 #define GM_MAINWIN_SHOWBKGND		0x010C

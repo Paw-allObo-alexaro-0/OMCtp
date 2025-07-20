@@ -5,7 +5,7 @@
 |*used.h - defines the used objects of the ingame type classes*|
 \**************************************************************/
 
-
+#include "../OMCtp_functions_header/sysinfo.h"
 
 #include "..\data\icon.h"
 

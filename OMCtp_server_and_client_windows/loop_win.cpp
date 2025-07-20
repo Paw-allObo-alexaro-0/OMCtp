@@ -6,15 +6,10 @@
 \**************************************************************/
 
 #include "loop_win.h"
-#include  "timer.h"
 
 #ifndef RemVanilla_WinWndProc
-LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
+LRESULT __stdcall WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wparam, LPARAM p_lparam)
 {
-	if(p_hwnd != mainWindow)
-	{
-		return DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);
-	}
 	switch (p_msg)
 	{
 		case WM_ACTIVATE:
@@ -46,10 +41,10 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 					//Todo: Add Menu!
 					break;
 				case 1:
-					//Todo: Add Accs!
+					//Todo: Add Accelerators!
 					break;
 				default:
-					//Todo: Buttons
+					//Todo: Buttons?
 					break;
 			}
 			return 0;
@@ -83,7 +78,7 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 		}
 		case WM_DROPFILES:
 		{
-			PostMsg(GM_MAINWIN_DROPFILES, (void*)p_wparam);
+			PostMsg(GM_MAINWIN_DROPFILES_WIN, (void*)p_wparam);
 			return 0;
 		}
 		case WM_INPUT:
@@ -98,7 +93,7 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 		}
 		case WM_MOUSEWHEEL:
 		{
-			PostMsg(GM_MAINWIN_MOUSEWHEEL, (void*)GET_WHEEL_DELTA_WPARAM(p_wparam));
+			PostMsg(GM_MAINWIN_MOUSEWHEEL_WIN, (void*)GET_WHEEL_DELTA_WPARAM(p_wparam));
 			return 0;
 		}
 		case WM_MOUSELEAVE:
@@ -111,8 +106,9 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 			// Todo: Setup Auto-Cancel
 			return 0;
 		}
-		case WM_PAINT:
+		case WM_ERASEBKGND:
 		{
+			// Todo: Temporary background painting
 			HDC hdc = GetDC(mainWindow);
 			RECT rc;
 			GetClientRect(mainWindow, &rc);
@@ -133,6 +129,34 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 				DeleteObject(hBrush);
 			}
 			ReleaseDC(mainWindow, hdc);
+			// End of temporary background painting
+
+		}
+		case WM_PAINT:
+		{
+			// Todo: Temporary background painting
+			HDC hdc = GetDC(mainWindow);
+			RECT rc;
+			GetClientRect(mainWindow, &rc);
+			int width = rc.right - rc.left;
+			int height = rc.bottom - rc.top;
+			COLORREF start = RGB(0, 0, 0); // Start color (black)
+			COLORREF end = RGB(255, 255, 255); // End color (white)
+
+			for (int i = 0; i < height; i++) {
+				float ratio = (float)i / height;
+				int r = GetRValue(start) + ratio * (GetRValue(end) - GetRValue(start));
+				int g = GetGValue(start) + ratio * (GetGValue(end) - GetGValue(start));
+				int b = GetBValue(start) + ratio * (GetBValue(end) - GetBValue(start));
+
+				HBRUSH hBrush = CreateSolidBrush(RGB(r, g, b));
+				RECT line = { rc.left, rc.top + i, rc.right, rc.top + i + 1 };
+				FillRect(hdc, &line, hBrush);
+				DeleteObject(hBrush);
+			}
+			ReleaseDC(mainWindow, hdc);
+			// End of temporary background painting
+
 			ValidateRect(mainWindow, nullptr);
 			PostMsg(GM_MAINWIN_REPAINT, nullptr);
 			return 0;
@@ -155,6 +179,7 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 		case WM_SYSCOMMAND:
 		{
 			PostMsg(GM_MAINWIN_SYSCOMMAND, (void*)p_wparam);
+			DefWindowProc(p_hwnd, p_msg, p_wparam, p_lparam);
 			return 0;
 		}
 		case WM_TIMECHANGE:
@@ -171,28 +196,23 @@ LRESULT __stdcall omctpfun_win::WinWndProc(HWND p_hwnd, UINT p_msg, WPARAM p_wpa
 
 #endif // RemVanilla_WinWndProc
 
-#ifndef RemVanilla_recive_messages
-namespace omctpfun_win
+void receive_messages(void)
 {
-	void receive_messages(void)
+	LARGE_INTEGER time;
+	LARGE_INTEGER old_time = {};
+	MSG msg;
+	while (true)
 	{
-		LARGE_INTEGER time;
-		LARGE_INTEGER old_time = {};
-		MSG msg;
-		while (true)
-		{
-			GetMessage(&msg, NULL, 0, 0);
-			WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
-			time = mhighres_timer();
-			loop(GT_CHKMSG);
+		GetMessage(&msg, NULL, 0, 0);
+		WinWndProc(msg.hwnd, msg.message, msg.wParam, msg.lParam);
+		time = mhighres_timer();
+		loop(GT_CHKMSG);
 
-			if (old_time.QuadPart + 10000 < time.QuadPart)
-			{
-				old_time = time;
-				loop(GT_TICK);
-				loop(GT_DRAW);
-			}
+		if (old_time.QuadPart + 10000 < time.QuadPart)
+		{
+			old_time = time;
+			loop(GT_TICK);
+			loop(GT_DRAW);
 		}
 	}
 }
-#endif // RemVanilla_recive_messages

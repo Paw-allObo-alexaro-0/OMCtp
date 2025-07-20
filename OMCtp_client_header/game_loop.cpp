@@ -43,10 +43,10 @@ bool loop(char task)
 			switch (msg.msg)
 			{
 				case GM_SYSTIMECHANGE:
-					// Handle system time change
+					// Todo: Handle system time change
 					break;
 				case GM_LOWMEM:
-					// Handle low memory condition
+					// Todo: Handle low memory condition
 					break;
 				case GM_EXIT:
 					exit(0);
@@ -54,13 +54,40 @@ bool loop(char task)
 					ShowMainWindow();
 					break;
 				case GM_MAINWIN_ACTIVATE:
-					loop(GT_DRAW);
+					loop(GT_REDRAW);
 					break;
 				case GM_MAINWIN_DEACTIVATE:
-					// Handle main window deactivation
+					// Tode: Handle main window deactivation
 					break;
 				case GM_MAINWIN_CLOSE:
-
+					// Todo: Ask to close the main window
+					DestroyMainWindow();
+					break;
+				case GM_MAINWIN_DESTROY:
+					ExitProg();
+				case GM_MAINWIN_CONTEXT:
+					// Todo: Create context menu for the main window
+					break;
+				case GM_MAINWIN_RELOADGRAPHICS:
+					// Todo: Reload graphics for the main window
+					break;
+				case GM_MAINWIN_DROPFILES_WIN:
+					// Todo: Maybe handle dropped files in the main window, not planned (only windows)
+					break;
+				case GM_MAINWIN_MOUSEWHEEL_WIN:
+					// Todo: Handle mouse wheel events in the main window (only windows)
+					break;
+				case GM_MAINWIN_MOUSELEAVE:
+					// Todo: Handle mouse leave events in the main window (only windows)
+					break;
+				case GM_MAINWIN_REPAINT:
+					loop(GT_REDRAW);
+					break;
+				case GM_MAINWIN_SHOWBKGND:
+					DrawBkgnd();
+				case GM_MAINWIN_SYSCOMMAND:
+					// Todo: Handle system commands for the main window
+					break;
 			}
 			return true;
 		}

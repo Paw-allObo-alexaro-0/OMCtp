@@ -4,6 +4,7 @@
 |********************NDVX Studios - 05/2025********************|
 |************winentry.cpp - Entry-point for Windows************|
 \**************************************************************/
+#include "../OMCtp_functions_header/sysinfo.h"
 
 #include "../mods/mods.h"
 
@@ -22,10 +23,12 @@ int WINAPI WinMain(HINSTANCE p_winInstance, HINSTANCE p_winInstancePrev, LPSTR c
 	winInstance = p_winInstance; // Make instance-handle available globally
 
 	// Create the main window
-	HWND local_mainWindow = omctpfun_win::CreateMainWindow(p_winInstance, cmdLine);
+	HWND local_mainWindow = CreateMainWindow(p_winInstance, cmdLine);
 	mainWindow = local_mainWindow;
-	omctpfun_win::receive_messages(); // Start receiving messages
+
+	receive_messages(); // Start receiving messages
 //	command::start("omctp", "sc", winInstance, local_mainWindow);
+
 	return 0;
 }
 #endif // RemVanilla_WinMain

@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)ingame_types.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)used.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)sysinfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)used.cpp" />
