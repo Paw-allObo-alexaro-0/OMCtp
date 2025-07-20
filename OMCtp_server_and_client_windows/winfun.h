@@ -5,22 +5,25 @@
 |***************winfun.h - Functions for Windows***************|
 \**************************************************************/
 
+#include "../OMCtp_functions_header/sysinfo.h"
+
 #include <Windows.h>
 #include "ingame_to_win.h"
 #include "loop_win.h"
 #include "../OMCtp_functions_header/used.h"
 
-#ifndef RemVanilla_omctpfun_win
-namespace omctpfun_win
-{
 #ifndef RemVanilla_CreateMainWindow
-	HWND CreateMainWindow(HINSTANCE p_winInstance, char* cmdLine);
+HWND CreateMainWindow(HINSTANCE p_winInstance, char* cmdLine);
 #endif // RemVanilla_CreateMainWindow
-#ifndef RemVanilla_ShowMainWindow
-	void ShowMainWindow(HWND mainWindow, int winShowParam);
-#endif // RemVanilla_ShowMainWindow
-#ifndef RemVanilla_recive_messages
-	void receive_messages(void);
-#endif // RemVanilla_recive_messages
-};
-#endif // RemVanilla_omctpfun_win
+
+#ifndef RemVanillaDestroyWinMainWindow
+void DestroyWinMainWindow(void);
+#endif // RemVanillaDestroyWinMainWindow
+
+#ifndef RemVanilla_ShowWinMainWindow
+void ShowWinMainWindow(void);
+#endif // RemVanilla_ShowWinMainWindow
+
+#ifndef RemVanilla_DrawBkgndWin
+void DrawBkgndWin();
+#endif // RemVanilla_DrawBkgndWin

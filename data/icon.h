@@ -6,6 +6,8 @@
 |********defines the objects of the ingame type classes********|
 \**************************************************************/
 
+#include "../OMCtp_functions_header/sysinfo.h"
+
 #include "..\OMCtp_functions_header\ingame_types.h"
 
 //use pointers, so you are able to delete the objects

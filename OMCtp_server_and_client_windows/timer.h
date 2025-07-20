@@ -5,7 +5,9 @@
 |*********timer.h - provides the high resolution timer*********|
 \**************************************************************/
 
-#ifdef _WIN32
+#include "../OMCtp_functions_header/sysinfo.h"
+
+#ifdef WINDOWS
 #include <Windows.h>
 #else
 #include <sys/time.h>
